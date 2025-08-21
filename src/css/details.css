@@ -1,0 +1,582 @@
+.details-page-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: visible
+}
+
+.backdrop-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the entire area */
+  z-index: -1; /* Ensures the backdrop stays behind the content */
+  filter: brightness(0.4); /* Darkens the backdrop to ensure the content is visible */
+}
+.certification-release {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* spacing between the box and date */
+  margin-top: 10px;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+}
+
+.certification-box {
+  background-color: transparent; /* or any highlight color */
+  border: 1px solid #a3a3a3; 
+  color: rgb(151, 151, 151);
+  padding: 0.3px 4px;
+  border-radius: 6px;
+  font-size: 0.75em;
+  font-weight: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certification {
+  margin: 0; /* remove default paragraph margin */
+}
+
+.release-date {
+  
+  font-size: 1em;
+  font-weight: bold;
+  color:#ffffff; 
+  margin: 0;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 30px; /* Adds consistent spacing between image and info */
+  max-width: 1200px; /* Optional: prevents content from stretching too wide */
+  margin: 0 auto; /* Centers the container */
+  z-index: 1; /* Ensures content appears above the backdrop */
+}
+
+.details-image {
+  flex: 0 0 300px; /* Fixed width for image container */
+  position: sticky;
+  top: 20px; /* Sticks to top when scrolling */
+  height: fit-content; 
+  align-self: flex-start; /* Prevents stretching */
+}
+
+.details-image img {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  aspect-ratio: 2/3; /* Maintains poster aspect ratio */
+}
+
+.streaming-banner {
+  display: flex;
+  align-items: center;
+  background-color: #112240;
+  color: white;
+  padding: 0.7em 1em;
+  border-radius: 0 0 12px 12px;
+  font-family: 'Arial', sans-serif;
+  justify-content: center;
+  gap: 0.75em;
+  margin-top: -0.23em;
+}
+
+.streaming-logo {
+  width: 2.5em;
+  height: 2.5em;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.streaming-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.streaming-banner .streaming-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.streaming-banner .streaming-text span:first-child {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.875em;
+  color: #c8c7c7;
+}
+
+.streaming-banner .streaming-text span:last-child {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+
+
+.details-info {
+  flex: 1; /* Takes remaining space */
+  min-width: 0; /* Allows text wrapping */
+  color: white; /* Ensures text is visible on dark backdrop */
+}
+
+/* Existing rating styles... */
+.rating-stars {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  line-height: 1;
+  margin-top: 10px;
+}
+
+.stars-background {
+  color: #ccc;
+  position: relative;
+}
+
+.stars-foreground {
+  color: gold;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.numeric-rating {
+  margin-left: 5px;
+  font-size: 18px;
+  color: white;
+}
+
+/* Add responsive behavior */
+@media (max-width: 768px) {
+  .details-container {
+      flex-direction: column;
+  }
+  
+  .details-image {
+      position: static;
+      flex: 0 0 auto;
+      margin-bottom: 20px;
+  }
+}
+
+.cast-crew-section {
+  margin-top: 2em;
+  width: 100%;
+}
+
+.cast-crew-section h1 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
+
+.cast-container, .crew-container {
+  display: flex;
+  overflow-x: auto;
+  flex-direction: row;
+  gap: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  cursor: grab;
+  scrollbar-width: thin;
+  scrollbar-color: #f7931e #e4e5e9;
+}
+
+.cast-container::-webkit-scrollbar, 
+.crew-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cast-container::-webkit-scrollbar-track, 
+.crew-container::-webkit-scrollbar-track {
+  background: #e4e5e9;
+  border-radius: 4px;
+}
+
+.cast-container::-webkit-scrollbar-thumb, 
+.crew-container::-webkit-scrollbar-thumb {
+  background-color: #f7931e;
+  border-radius: 4px;
+}
+
+.cast-container:active, 
+.crew-container:active {
+  cursor: grabbing;
+}
+
+.cast-member, .crew-member {
+  flex: 0 0 auto;
+  width: 115px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.cast-member img, 
+.crew-member img {
+  width: 100px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.cast-member .no-image, 
+.crew-member .no-image {
+  width: 100px;
+  height: 150px;
+  background: #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.8em;
+  text-align: center;
+}
+
+/* Watchlist Button Styles */
+.watchlist-button-container {
+  margin-top: -50px;
+  margin-left: 190px;
+}
+
+.watchlist-button1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Fixed width for circle */
+  height: 50px; /* Fixed height for circle */
+  padding: 0; /* Remove padding since we're using fixed dimensions */
+  background-color: white;
+  color: black;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Makes it perfectly round */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  position: relative; /* For absolute positioning of icon */
+}
+
+.watchlist-button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Fixed width for circle */
+  height: 50px; /* Fixed height for circle */
+  padding: 0; /* Remove padding since we're using fixed dimensions */
+  background-color: #112240;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Makes it perfectly round */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  position: relative; /* For absolute positioning of icon */
+}
+
+.watchlist-button1:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.watchlist-button2:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.watchlist-button1 span {
+  position: absolute;
+  top: -40%;
+  left: -170%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.watchlist-button2 span {
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.watchlist-button1:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.watchlist-button2:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.watchlist-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* If you want a filled icon when active */
+.watchlist-button1.active .watchlist-icon {
+  fill: var(--accent-color, #f5c518);
+}
+
+.watchlist-button2.active .watchlist-icon {
+  fill: var(--accent-color, #f5c518);
+}
+
+.suggest-container {
+  margin-top: -50px;
+  margin-left: 120px;
+}
+
+.suggest-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Fixed width for circle */
+  height: 50px; /* Fixed height for circle */
+  padding: 0; /* Remove padding since we're using fixed dimensions */
+  background-color: #112240;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Makes it perfectly round */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  position: relative; /* For absolute positioning of icon */
+}
+
+.suggest-button:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.suggest-button span {
+  position: absolute;
+  top: -40%;
+  left: -120%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.suggest-button:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.suggest-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* If you want a filled icon when active */
+.suggest-button.active .suggest-icon {
+  fill: var(--accent-color, #f5c518);
+}
+
+.mark-container {
+  margin-top: 5px;
+  margin-left: 50px;
+}
+
+.mark-button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Fixed width for circle */
+  height: 50px; /* Fixed height for circle */
+  padding: 0; /* Remove padding since we're using fixed dimensions */
+  background-color: #112240;
+  color: white;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Makes it perfectly round */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  position: relative; /* For absolute positioning of icon */
+}
+
+.mark-button1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; /* Fixed width for circle */
+  height: 50px; /* Fixed height for circle */
+  padding: 0; /* Remove padding since we're using fixed dimensions */
+  background-color: white;
+  color: black;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%; /* Makes it perfectly round */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(5px);
+  position: relative; /* For absolute positioning of icon */
+}
+
+.mark-button2:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.mark-button1:hover {
+  background-color: rgba(30, 30, 30, 0.9);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.mark-button1 span {
+  position: absolute;
+  top: -40%;
+  left: -100%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.mark-button2 span {
+  position: absolute;
+  top: -40%;
+  left: -80%;
+  transform: translateY(-50%);
+  margin-left: 10px;
+  white-space: nowrap;
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.mark-button1:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mark-button2:hover span {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mark-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* If you want a filled icon when active */
+.mark-button1.active .mark-icon{
+  fill: var(--accent-color, #f5c518);
+}
+
+.mark-button2.active .mark-icon{
+  fill: var(--accent-color, #f5c518);
+}
+
+/* .popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-box {
+  z-index: 1001;
+  position: relative;
+  background: #181818;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  color: white;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.send-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3897f0;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+} */

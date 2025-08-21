@@ -1,0 +1,78 @@
+/* Add styles for the navbar container */
+.navbar-container {
+    display: flex;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    background-color: #111;
+  }
+  
+  .navbar-container.open {
+    width: 250px; /* Width when open */
+  }
+  
+  .navbar-container.closed {
+    width: 0px; /* Width when closed */
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    width: 100%;
+  }
+  
+  .navbar-button {
+    background-color: #111;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .navbar-button.active {
+    background-color: #f1f1f1;
+    color: #111;
+  }
+  
+  .logout-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: auto; /* Push logout button to bottom */
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .toggle-button {
+    position: fixed; /* Change to fixed position */
+    bottom: 20px; /* Align to bottom */
+    left: 20px; /* Align to right */
+    background-color: #1d1d1d;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 50%;
+    transition: right 0.3s ease;
+    transition: left 0.3s ease;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }
+  
+  /* Add styles for the navbar links when open */
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

@@ -1,0 +1,99 @@
+.watchlist-page {
+  background-color: #000;
+  color: #fff;
+  padding: 100px 20px 40px; /* space below fixed navbars */
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.watchlist-page h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #92ff03;
+}
+
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+  justify-items: center;
+}
+
+.watchlist-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.watchlist-card:hover {
+  transform: scale(1.03);
+}
+
+.watchlist-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.watchlist-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.watchlist-info h3 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+  color: #ffffff;
+}
+
+.watchlist-info .category {
+  font-size: 14px;
+  color: #92ff03;
+  margin-bottom: 4px;
+}
+
+.watchlist-info .date {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 6px;
+}
+
+.watchlist-info .description {
+  font-size: 13px;
+  color: #ccc;
+  margin-bottom: 6px;
+}
+
+.watchlist-info .creator {
+  font-size: 13px;
+  color: #bbb;
+}
+
+/* Loading and Empty States */
+.watchlist-page p {
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .watchlist-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .watchlist-card {
+    max-width: 100%;
+  }
+}
